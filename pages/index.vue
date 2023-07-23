@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <TailwindTest />
+        <TempTailwindTest />
     </div>
 </template>
 
