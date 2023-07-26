@@ -1,24 +1,43 @@
 <script setup lang='ts'>
-import { useUsersStore } from '@/stores/users';
+import { storeToRefs } from 'pinia';
+import { useUsersStore, useTeachersStore, useStudentsStore } from '@/stores/users';
 
-const users = useUsersStore();
-
-// const firstName = users.firstName;
-// const lastName = users.lastName;
+const usersInfo = useUsersStore();
+const teachersInfo = useTeachersStore();
+const studentsInfo = useStudentsStore();
 
 function handleClickTeacher() {
-    console.log('Teacher clicked');
-    users.firstName = 'علي'
-    users.lastName = 'كرم'
+    usersInfo.$patch({
+        firstName: 'علي',
+        lastName: 'كرم',
+        avatar: '/assets/images/MyPhoto.jpg',
+        role: 'teacher',
+    })
+    teachersInfo.$patch({
+        supjects: [' حاسوب', ' المعلوماتية'],
+        grades: [' الثاني عشر', ' الحادي عشر'],
+        rating: 4,
+    })
 }
 function handleClickStudent() {
-    console.log('Student clicked');
-    users.firstName = 'احمد'
-    users.lastName = 'علي'
+    usersInfo.$patch({
+        firstName: 'احمد',
+        lastName: 'علي',
+        avatar: '',
+        role: 'student',
+    })
+    studentsInfo.$patch({
+        grade: 'الثانوية',
+        school: 'ابن العميد',
+        area: 'العمرية',
+    })
+    teachersInfo.resetTeacher()
 }
 function handleClickLogout() {
     console.log('Logout clicked');
-    users.reset()
+    usersInfo.resetUser()
+    teachersInfo.resetTeacher()
+    studentsInfo.resetStudent()
 }
 </script>
 

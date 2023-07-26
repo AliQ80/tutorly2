@@ -6,7 +6,8 @@ export const useUsersStore = defineStore('users', () => {
   const email = ref('')
   const password = ref('')
   const role = ref('')
-  const rating = ref(0)
+  const avatar = ref('')
+  const gender = ref('')
 
   const fullName = computed(() => {
     return firstName.value + ' ' + lastName.value
@@ -15,13 +16,13 @@ export const useUsersStore = defineStore('users', () => {
     return firstName.value.charAt(0) + lastName.value.charAt(0)
   })
 
-  function reset() {
+  function resetUser() {
     firstName.value = ''
     lastName.value = ''
     email.value = ''
     password.value = ''
     role.value = ''
-    rating.value = 0
+    avatar.value = ''
   }
 
   return {
@@ -30,9 +31,48 @@ export const useUsersStore = defineStore('users', () => {
     email,
     password,
     role,
+    avatar,
+    gender,
     fullName,
     initals,
+    resetUser,
+  }
+})
+
+export const useTeachersStore = defineStore('teachers', () => {
+  const rating = ref(0)
+  const supjects = ref([]) as Ref<any[]>
+  const grades = ref([])
+
+  function resetTeacher() {
+    rating.value = 0
+    supjects.value = []
+    grades.value = []
+  }
+
+  return {
     rating,
-    reset,
+    supjects,
+    grades,
+    resetTeacher,
+  }
+})
+
+export const useStudentsStore = defineStore('students', () => {
+  const grade = ref('')
+  const school = ref('')
+  const area = ref('')
+
+  function resetStudent() {
+    grade.value = ''
+    school.value = ''
+    area.value = ''
+  }
+
+  return {
+    grade,
+    school,
+    area,
+    resetStudent,
   }
 })

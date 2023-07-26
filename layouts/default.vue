@@ -1,14 +1,6 @@
-<script setup lang='ts'>
-// import Navbar1 from '..Navbar1.vue';
-
-
-</script>
-
 <template>
     <div>
-        <Navbar1 />
+        <Navbar1 dir="ltr" />
         <slot />
     </div>
 </template>
-
-<style scoped></style>
