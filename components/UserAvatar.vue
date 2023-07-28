@@ -4,7 +4,7 @@ import { useUsersStore } from '@/stores/users';
 
 const users = useUsersStore();
 
-const { initals } = storeToRefs(users)
+const { initials } = storeToRefs(users)
 </script>
 
 <template>
@@ -19,8 +19,8 @@ const { initals } = storeToRefs(users)
         <figure v-else class="px-10 py-10">
             <div class="avatar placeholder">
                 <div
-                    class="bg-neutral-focus text-neutral-content rounded-full w-48 ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <span class="text-6xl">{{ initals }}</span>
+                    class="w-48 bg-neutral-focus text-neutral-content rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <span class="text-8xl">{{ initials }}</span>
                 </div>
             </div>
         </figure>
