@@ -8,7 +8,7 @@ const teachers = useTeachersStore();
 const students = useStudentsStore();
 
 const { fullName, role } = storeToRefs(users)
-const { supjects, grades, rating } = storeToRefs(teachers)
+const { subjects, grades, rating } = storeToRefs(teachers)
 const { grade, school, area } = storeToRefs(students)
 </script>
 
@@ -19,7 +19,7 @@ const { grade, school, area } = storeToRefs(students)
             <div class="card-body items-center text-center">
                 <h2 class="card-title">الاسم: {{ fullName }}</h2>
                 <div v-if="role === 'teacher'">
-                    <p>التخصص: <span>{{ supjects.toString() }}</span></p>
+                    <p>التخصص: <span>{{ subjects.toString() }}</span></p>
                     <p>المرحلة: {{ grades.toString() }}</p>
                     <p>التقييم: {{ rating }}</p>
                     <div class="card-actions justify-center mt-4">

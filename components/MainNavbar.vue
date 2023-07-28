@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useUsersStore } from '@/stores/users';
+
+const users = useUsersStore();
+const { authenticated } = storeToRefs(users);
+const isLoggedIn = () => {
+    if (authenticated.value === true) {
+        return true;
+    } else if (authenticated.value === false) {
+        return false;
+    }
+}
+// console.log(authenticated.value);
+// console.log(loggedIn);
+</script>
+
 <template>
     <div>
         <div class="navbar bg-base-100">
@@ -86,7 +103,12 @@
                 </ul>
             </div>
             <div class="navbar-end">
-                <a class="btn btn-accent">ابدأ هنا</a>
+                <div v-if="isLoggedIn()">
+                    <AvatarNavbar />
+                </div>
+                <div v-else>
+                    <NuxtLink to="#" class="btn btn-accent">ابدأ هنا</NuxtLink>
+                </div>
             </div>
         </div>
         <TempLoginButton />

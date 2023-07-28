@@ -1,10 +1,12 @@
 <script setup lang='ts'>
-import { storeToRefs } from 'pinia';
+// import { storeToRefs } from 'pinia';
 import { useUsersStore, useTeachersStore, useStudentsStore } from '@/stores/users';
 
 const usersInfo = useUsersStore();
 const teachersInfo = useTeachersStore();
 const studentsInfo = useStudentsStore();
+
+// const { rating, subjects, grades } = storeToRefs(teachersInfo);
 
 function handleClickTeacher() {
     usersInfo.$patch({
@@ -12,12 +14,20 @@ function handleClickTeacher() {
         lastName: 'كرم',
         avatar: '/assets/images/MyPhoto.jpg',
         role: 'teacher',
+        authenticated: true,
     })
+
     teachersInfo.$patch({
-        supjects: [' حاسوب', ' المعلوماتية'],
-        grades: [' الثاني عشر', ' الحادي عشر'],
         rating: 4,
-    })
+        subjects: ['حاسوب', 'المعلوماتية'],
+        grades: ['الثاني عشر', 'الحادي عشر'],
+    });
+
+    // rating.value = 4
+    // subjects.value = ['حاسوب', 'المعلوماتية']
+    // grades.value = ['الثاني عشر', 'الحادي عشر']
+
+    studentsInfo.resetStudent();
 }
 function handleClickStudent() {
     usersInfo.$patch({
@@ -25,6 +35,7 @@ function handleClickStudent() {
         lastName: 'علي',
         avatar: '',
         role: 'student',
+        authenticated: true,
     })
     studentsInfo.$patch({
         grade: 'الثانوية',
