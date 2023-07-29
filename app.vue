@@ -1,11 +1,9 @@
 <template>
   <div>
     <Html dir="rtl">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </Html>
   </div>
 </template>
- 

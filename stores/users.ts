@@ -11,7 +11,7 @@ export const useUsersStore = defineStore('users', () => {
   const authenticated = ref(false)
 
   const fullName = computed(() => {
-    return firstName.value + ' ' + lastName.value
+    return `${firstName.value} ${lastName.value}`
   })
   const initials = computed(() => {
     return firstName.value.charAt(0) + lastName.value.charAt(0)
