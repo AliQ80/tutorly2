@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div>
-        <TempTailwindTest />
-    </div>
+  <div>
+    <TempTailwindTest />
+  </div>
 </template>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <MainNavbar dir="ltr" />
-        <slot />
-    </div>
+  <div>
+    <MainNavbar dir="ltr" />
+    <slot />
+  </div>
 </template>
