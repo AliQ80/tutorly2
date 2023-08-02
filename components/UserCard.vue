@@ -1,3 +1,4 @@
+<!-- eslint-disable no-console -->
 <script setup lang='ts'>
 import { storeToRefs } from 'pinia'
 import { useStudentsStore, useTeachersStore, useUsersStore } from '@/stores/users'
@@ -10,6 +11,17 @@ const students = useStudentsStore()
 const { fullName, role } = storeToRefs(users)
 const { subjects, grades, rating } = storeToRefs(teachers)
 const { grade, school, area } = storeToRefs(students)
+
+function starRatingRole() {
+  if (role.value === 'student') {
+    console.log(role.value)
+    return false
+  }
+  else if (role.value === 'teacher') {
+    console.log(role.value)
+    return true
+  }
+}
 </script>
 
 <template>
@@ -23,7 +35,10 @@ const { grade, school, area } = storeToRefs(students)
         <div v-if="role === 'teacher'">
           <p>التخصص: <span>{{ subjects.toString() }}</span></p>
           <p>المرحلة: {{ grades.toString() }}</p>
-          <p>التقييم: {{ rating }}</p>
+          <p>
+            التقييم:
+            <NuxtRating :read-only="starRatingRole" :rating-value="rating" />
+          </p>
           <div class="card-actions justify-center mt-4">
             <button class="btn btn-primary">
               احجز موعد
