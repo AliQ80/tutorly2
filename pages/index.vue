@@ -4,7 +4,11 @@
 
 <template>
   <div>
-    <TempTailwindTest />
+    <article class="prose flex justify-center mt-8">
+      <h1>
+        Home page
+      </h1>
+    </article>
   </div>
 </template>
 

@@ -1,8 +1,16 @@
 <script setup lang='ts'>
 import { storeToRefs } from 'pinia'
-import { useUsersStore } from '@/stores/users'
+import { useStudentsStore, useTeachersStore, useUsersStore } from '@/stores/users'
 
 const users = useUsersStore()
+const teachers = useTeachersStore()
+const students = useStudentsStore()
+
+function handleClickLogout() {
+  users.resetUser()
+  teachers.resetTeacher()
+  students.resetStudent()
+}
 const { avatar, initials } = storeToRefs(users)
 </script>
 
@@ -26,7 +34,7 @@ const { avatar, initials } = storeToRefs(users)
         class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
       >
         <li>
-          <NuxtLink class="justify-between">
+          <NuxtLink to="/profile" class="justify-between">
             الملف الشخصي
           </NuxtLink>
         </li>
@@ -34,7 +42,7 @@ const { avatar, initials } = storeToRefs(users)
           <NuxtLink>الاعدادات</NuxtLink>
         </li>
         <li>
-          <NuxtLink class="bg-secondary-focus">
+          <NuxtLink to="/" class="bg-secondary-focus" @click="handleClickLogout">
             الخروج
           </NuxtLink>
         </li>
