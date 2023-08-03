@@ -88,7 +88,7 @@ function isLoggedIn() {
           </svg>
         </nuxt-link>
 
-        <NuxtLink class="btn normal-case text-xl">
+        <NuxtLink to="/" class="btn normal-case text-xl">
           Tutorly
         </NuxtLink>
       </div>

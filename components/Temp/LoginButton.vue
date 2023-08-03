@@ -56,7 +56,7 @@ function handleClickLogout() {
     <div>
         <button @click="handleClickTeacher" class="tmp-btn">Teacher</button>
         <button @click="handleClickStudent" class="tmp-btn">Student</button>
-        <button @click="handleClickLogout" class="tmp-btn">Logout</button>
+        <NuxtLink to="/" @click="handleClickLogout" class="tmp-btn">Logout</NuxtLink>
     </div>
 </template>
 

@@ -10,7 +10,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui'), [require('tailwindcss-flip')]],
+  plugins: [
+    require('tailwindcss-flip'),
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
 
   // daisyUI config (optional - here are the default values)
   daisyui: {
