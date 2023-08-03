@@ -1,13 +1,10 @@
 <script setup lang='ts'>
-// import { storeToRefs } from 'pinia';
 import { useUsersStore, useTeachersStore, useStudentsStore } from '@/stores/users';
 import MyPhoto from '@/assets/images/MyPhoto.jpg'
 
 const usersInfo = useUsersStore();
 const teachersInfo = useTeachersStore();
 const studentsInfo = useStudentsStore();
-
-// const { rating, subjects, grades } = storeToRefs(teachersInfo);
 
 function handleClickTeacher() {
     usersInfo.$patch({
@@ -23,10 +20,6 @@ function handleClickTeacher() {
         subjects: ['حاسوب', 'المعلوماتية'],
         grades: ['الثاني عشر', 'الحادي عشر'],
     });
-
-    // rating.value = 4
-    // subjects.value = ['حاسوب', 'المعلوماتية']
-    // grades.value = ['الثاني عشر', 'الحادي عشر']
 
     studentsInfo.resetStudent();
 }
@@ -55,8 +48,8 @@ function handleClickLogout() {
 
 <template>
     <div>
-        <button @click="handleClickTeacher" class="tmp-btn">Teacher</button>
-        <button @click="handleClickStudent" class="tmp-btn">Student</button>
+        <NuxtLink to="/dashboard" @click="handleClickTeacher" class="tmp-btn">Teacher</NuxtLink>
+        <NuxtLink to="/dashboard" @click="handleClickStudent" class="tmp-btn">Student</NuxtLink>
         <NuxtLink to="/" @click="handleClickLogout" class="tmp-btn">Logout</NuxtLink>
     </div>
 </template>
