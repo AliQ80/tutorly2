@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 // import { storeToRefs } from 'pinia';
 import { useUsersStore, useTeachersStore, useStudentsStore } from '@/stores/users';
+import MyPhoto from '@/assets/images/MyPhoto.jpg'
 
 const usersInfo = useUsersStore();
 const teachersInfo = useTeachersStore();
@@ -12,7 +13,7 @@ function handleClickTeacher() {
     usersInfo.$patch({
         firstName: 'علي',
         lastName: 'كرم',
-        avatar: '/assets/images/MyPhoto.jpg',
+        avatar: MyPhoto,
         role: 'teacher',
         authenticated: true,
     })

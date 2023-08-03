@@ -4,15 +4,15 @@ import { useUsersStore } from '@/stores/users'
 
 const users = useUsersStore()
 
-const { initials } = storeToRefs(users)
+const { initials, avatar } = storeToRefs(users)
 </script>
 
 <template>
   <div>
-    <figure v-if="users.avatar" class="px-10 pt-10">
+    <figure v-if="avatar" class="px-10 pt-10">
       <div class="avatar">
         <div class="w-48 mask mask-squircle">
-          <img :src="users.avatar">
+          <img :src="avatar">
         </div>
       </div>
     </figure>
