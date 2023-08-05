@@ -1,5 +1,7 @@
 {
-  "cSpell.words": ["Tutorly"],
+  "cSpell.words": [
+    "Tutorly"
+  ],
   "prettier.enable": false,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
