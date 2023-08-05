@@ -16,6 +16,7 @@
     "pinia": "^2.1.4"
   },
   "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.1.0",
     "@antfu/eslint-config": "^0.39.8",
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",

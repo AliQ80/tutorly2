@@ -9,7 +9,7 @@ useHead({
 
 <template>
   <div>
-    <article class="prose flex justify-center mt-8">
+    <article class="prose flex mx-auto justify-center mt-8">
       <h1>Dashboard</h1>
     </article>
   </div>
