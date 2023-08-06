@@ -40,9 +40,9 @@ function starRatingRole() {
             <NuxtRating :read-only="starRatingRole" :rating-value="rating" />
           </p>
           <div class="card-actions justify-center mt-4">
-            <button class="btn btn-primary">
+            <NuxtLink to="/booking" class="btn btn-primary">
               احجز موعد
-            </button>
+            </NuxtLink>
           </div>
         </div>
         <div v-if="role === 'student'">
