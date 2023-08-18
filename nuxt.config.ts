@@ -11,6 +11,5 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     'nuxt-rating',
-    '@ant-design-vue/nuxt',
   ],
 })

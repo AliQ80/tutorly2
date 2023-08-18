@@ -1,47 +1,71 @@
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script setup lang='ts'>
+const menu = ref(false)
+const collapsed = ref('w-16')
+function handleMenu() {
+  menu.value = !menu.value
+  if (!menu.value)
+    collapsed.value = 'w-16'
 
-const collapsed = ref<boolean>(false)
-const selectedKeys = ref<string[]>(['1'])
+  else
+    collapsed.value = 'w-36'
+}
 </script>
 
 <template>
-  <ClientOnly>
-    <a-layout style="min-height: 100vh">
-      <a-layout-sider v-model:collapsed="collapsed" collapsible>
-        <div class="logo" />
-        <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-          <NuxtLink to="/dashboard">
-            <a-menu-item key="1">
-              <fund-outlined :style="{ fontSize: '28px' }" />
-              <span>لوحة التحكم</span>
-            </a-menu-item>
-          </NuxtLink>
-
-          <NuxtLink to="/search">
-            <a-menu-item key="2">
-              <search-outlined :style="{ fontSize: '28px' }" />
-              <span>البحث</span>
-            </a-menu-item>
-          </NuxtLink>
-
-          <!-- <a-menu-item key="3">
-            <FileOutlined />
-            <span>File</span>
-          </a-menu-item> -->
-        </a-menu>
-      </a-layout-sider>
-      <a-layout style="background: #1C2025; padding: 0">
-        <slot />
-      </a-layout>
-    </a-layout>
-  </ClientOnly>
+  <div>
+    <ul :class="collapsed" class="menu bg-base-300 rounded-box">
+      <!-- <li>
+        <button class="btn btn-sm" @click="handleMenu">
+          <p v-if="!menu">
+            >
+          </p>
+          <p v-else>
+            &lt;
+          </p>
+        </button>
+      </li> -->
+      <li>
+        <NuxtLink>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <p v-if="menu">
+            لوحة التحكم
+          </p>
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <p v-if="menu">
+            Item 2
+          </p>
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          <p v-if="menu">
+            Item 3
+          </p>
+        </NuxtLink>
+      </li>
+      <li class="disabled">
+        <div class="h-96" />
+      </li>
+      <li />
+      <li>
+        <button class="btn btn-sm" @click="handleMenu">
+          <p v-if="!menu">
+            >
+          </p>
+          <p v-else>
+            &lt;
+          </p>
+        </button>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
-#components-layout-demo-side .logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
-}
+
 </style>

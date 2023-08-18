@@ -15,7 +15,7 @@ function isLoggedIn() {
 <template>
   <div>
     <MainNavbar dir="ltr" />
-    <SideMenu v-if="isLoggedIn()" dir="ltr">
+    <SideMenu v-if="isLoggedIn()">
       <slot />
     </SideMenu>
     <slot v-else />
