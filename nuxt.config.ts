@@ -7,9 +7,19 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  // logLevel: 'silent',
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     'nuxt-rating',
+    '@nuxtjs/supabase',
+    '@formkit/nuxt',
   ],
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/', '/register'],
+    },
+  },
 })

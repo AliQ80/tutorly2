@@ -12,20 +12,25 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@formkit/addons": "^0.19.3",
+    "@formkit/icons": "^0.19.3",
+    "@formkit/nuxt": "^0.19.3",
+    "@formkit/themes": "^0.19.3",
     "@pinia/nuxt": "^0.4.11",
     "nuxt-rating": "^0.0.15",
     "pinia": "^2.1.6"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.2",
-    "@nuxt/devtools": "latest",
+    "@antfu/eslint-config": "^0.41.0",
+    "@nuxt/devtools": "^0.8.2",
+    "@nuxtjs/supabase": "^1.0.2",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "^20.5.0",
-    "daisyui": "^3.5.1",
-    "eslint": "^8.47.0",
-    "lint-staged": "^14.0.0",
-    "nuxt": "^3.6.5",
+    "@types/node": "^20.5.7",
+    "daisyui": "^3.6.4",
+    "eslint": "^8.48.0",
+    "lint-staged": "^14.0.1",
+    "nuxt": "^3.7.0",
     "simple-git-hooks": "^2.9.0",
     "tailwindcss-flip": "^1.0.0"
   },
