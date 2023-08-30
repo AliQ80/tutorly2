@@ -4,7 +4,6 @@ export const useUsersStore = defineStore('users', () => {
   const firstName = ref('')
   const lastName = ref('')
   const email = ref('')
-  const password = ref('')
   const role = ref('')
   const avatar = ref('')
   const gender = ref('')
@@ -21,7 +20,6 @@ export const useUsersStore = defineStore('users', () => {
     firstName.value = ''
     lastName.value = ''
     email.value = ''
-    password.value = ''
     role.value = ''
     avatar.value = ''
     authenticated.value = false
@@ -31,7 +29,6 @@ export const useUsersStore = defineStore('users', () => {
     firstName,
     lastName,
     email,
-    password,
     role,
     avatar,
     gender,

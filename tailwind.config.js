@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const FormKitVariants = require('@formkit/themes/tailwindcss')
+
 module.exports = {
   content: [
     './components/**/*.{js,vue,ts}',
@@ -6,11 +8,13 @@ module.exports = {
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
+    './assets/styles/formkit-theme.js',
   ],
   theme: {
     extend: {},
   },
   plugins: [
+    FormKitVariants,
     require('tailwindcss-flip'),
     require('@tailwindcss/typography'),
     require('daisyui'),
