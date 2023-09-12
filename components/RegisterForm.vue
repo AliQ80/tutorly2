@@ -10,7 +10,7 @@ const password = ref('')
 const role = ref('')
 const gender = ref('')
 
-const district = ref('')
+const country = ref('')
 const area = ref('')
 const school = ref('')
 
@@ -40,7 +40,7 @@ const data
 const areaList = computed(() => {
   // area.value = data.area.[...district.value],
   // return `data.area.${district.value}`
-  const obj = data.area.find(o => o.name === district.value)
+  const obj = data.area.find(o => o.name === country.value)
   return obj
 })
 
@@ -63,6 +63,9 @@ async function userRegister(
   userPassword: string,
   userRole: string,
   userGender: string,
+  userCountry: string,
+  userCity: string,
+  userSchool: string,
 ) {
   try {
     const { error } = await supabase.auth.signUp({
@@ -75,6 +78,9 @@ async function userRegister(
           last_name: userLastName,
           role: userRole,
           gender: userGender,
+          country: userCountry,
+          city: userCity,
+          school: userSchool,
         },
       },
     })
@@ -97,7 +103,17 @@ async function userRegister(
 // TODO: remove submitHandler function
 
 function submitHandler() {
-  userRegister(firstName.value, lastName.value, email.value, password.value, role.value, gender.value)
+  userRegister(
+    firstName.value,
+    lastName.value,
+    email.value,
+    password.value,
+    role.value,
+    gender.value,
+    country.value,
+    area.value,
+    school.value,
+  )
 }
 </script>
 
@@ -107,8 +123,8 @@ function submitHandler() {
       <FormKit
         id="registration-example"
         type="form"
-        :form-class="submitted ? 'hide' : 'show'"
         submit-label="Register"
+        :form-class="submitted ? 'hide' : 'show'"
         :actions="true"
         @submit="submitHandler"
       >
@@ -203,11 +219,11 @@ function submitHandler() {
           School
         </div>
         <FormKit
-          v-model="district"
+          v-model="country"
           type="select"
-          label="where is your district?"
-          placeholder="Select an district"
-          name="district"
+          label="select your country?"
+          placeholder="Select an country"
+          name="country"
           validation="required"
           :options="data.district"
         />
