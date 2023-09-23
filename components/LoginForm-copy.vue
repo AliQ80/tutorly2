@@ -14,77 +14,43 @@
 //   if (error)
 //     console.error(error)
 // }
-
-const supabase = useSupabaseClient()
-
-const email = ref('')
-const password = ref('')
-
-const submitted = ref(false)
-
-async function userLogin(userEmail:string, userPassword:string) {
-  const { error } = await supabase.auth.signInWithPassword({
-    email: userEmail,
-    password: userPassword,
-  })
-  if (error)
-    console.error(error)
-  
-}
-
-function submitHandler() {
-  userLogin(
-    email.value,
-    password.value,
-  )
-}
 </script>
 
 <template>
   <div>
     <div class="relative flex flex-col justify-center h-screen overflow-hidden">
       <div class="w-full p-6 m-auto rounded-md shadow-md bg-base-100 lg:max-w-lg">
-        <h1 class="mb-6 text-3xl font-semibold text-center text-purple-600">
+        <h1 class="text-3xl font-semibold text-center text-purple-600">
           User Login
         </h1>
-        <!-- <form class="space-y-4"> -->
-        <FormKit 
-        id="login"
-        type="form"
-        submit-label="Login"
-        :form-class="submitted ? 'hide' : 'show'"
-        :actions="true"
-        @submit="submitHandler"
-        >
-        <FormKit
-          v-model="email"
-          type="text"
-          name="email"
-          label="Your email"
-          placeholder="jane@example.com"
-          validation="required|email"
-        />
-          <FormKit
-            v-model="password"
-            type="password"
-            name="password"
-            label="password"
-            placeholder="password"
-            validation="required|confirm"
-          />
-      </FormKit>
+        <form class="space-y-4">
+          <div>
+            <label class="label">
+              <span class="text-base label-text">Email</span>
+            </label>
+            <input type="text" placeholder="Email Address" class="w-full input input-bordered input-primary">
+          </div>
+          <div>
+            <label class="label">
+              <span class="text-base label-text">Password</span>
+            </label>
+            <input
+              type="password" placeholder="Enter Password"
+              class="w-full input input-bordered input-primary"
+            >
+          </div>
           <a href="#" class="text-xs text-gray-500 hover:underline hover:text-blue-600">Forget Password?</a>
           <div>
-            <!-- <button class="ml-4 btn btn-primary">
+            <button class="ml-4 btn btn-primary">
               Login
-            </button> -->
+            </button>
             <!-- </div> -->
             <!-- <div> -->
-            <NuxtLink to="/register" class="btn btn-secondary btn-xs">
+            <NuxtLink to="/register" class="btn btn-secondary">
               Register a new account
             </NuxtLink>
           </div>
-        <!-- </form> -->
+        </form>
         <div class="divider">
           OR
         </div>
