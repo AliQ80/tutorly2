@@ -121,7 +121,7 @@ function submitHandler() {
   <div>
     <div class="container flex justify-center mx-auto mt-8">
       <FormKit
-        id="registration-example"
+        id="registration"
         type="form"
         submit-label="Register"
         :form-class="submitted ? 'hide' : 'show'"
