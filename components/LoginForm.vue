@@ -22,14 +22,13 @@ const password = ref('')
 
 const submitted = ref(false)
 
-async function userLogin(userEmail:string, userPassword:string) {
+async function userLogin(userEmail: string, userPassword: string) {
   const { error } = await supabase.auth.signInWithPassword({
     email: userEmail,
     password: userPassword,
   })
   if (error)
     console.error(error)
-  
 }
 
 function submitHandler() {
@@ -48,22 +47,22 @@ function submitHandler() {
           User Login
         </h1>
         <!-- <form class="space-y-4"> -->
-        <FormKit 
-        id="login"
-        type="form"
-        submit-label="Login"
-        :form-class="submitted ? 'hide' : 'show'"
-        :actions="true"
-        @submit="submitHandler"
-        >
         <FormKit
-          v-model="email"
-          type="text"
-          name="email"
-          label="Your email"
-          placeholder="jane@example.com"
-          validation="required|email"
-        />
+          id="login"
+          type="form"
+          submit-label="Login"
+          :form-class="submitted ? 'hide' : 'show'"
+          :actions="true"
+          @submit="submitHandler"
+        >
+          <FormKit
+            v-model="email"
+            type="text"
+            name="email"
+            label="Your email"
+            placeholder="jane@example.com"
+            validation="required|email"
+          />
           <FormKit
             v-model="password"
             type="password"
@@ -72,18 +71,18 @@ function submitHandler() {
             placeholder="password"
             validation="required|confirm"
           />
-      </FormKit>
-          <a href="#" class="text-xs text-gray-500 hover:underline hover:text-blue-600">Forget Password?</a>
-          <div>
-            <!-- <button class="ml-4 btn btn-primary">
+        </FormKit>
+        <a href="#" class="text-xs text-gray-500 hover:underline hover:text-blue-600">Forget Password?</a>
+        <div>
+          <!-- <button class="ml-4 btn btn-primary">
               Login
             </button> -->
-            <!-- </div> -->
-            <!-- <div> -->
-            <NuxtLink to="/register" class="btn btn-secondary btn-xs">
-              Register a new account
-            </NuxtLink>
-          </div>
+          <!-- </div> -->
+          <!-- <div> -->
+          <NuxtLink to="/register" class="btn btn-secondary btn-xs">
+            Register a new account
+          </NuxtLink>
+        </div>
         <!-- </form> -->
         <div class="divider">
           OR
