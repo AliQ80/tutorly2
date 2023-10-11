@@ -79,7 +79,7 @@ function submitHandler() {
             </button> -->
           <!-- </div> -->
           <!-- <div> -->
-          <NuxtLink to="/register" class="btn btn-secondary btn-xs">
+          <NuxtLink to="/role" class="btn btn-secondary btn-xs">
             Register a new account
           </NuxtLink>
         </div>
