@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Html dir="rtl">
+    <Html class="arabic">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
@@ -11,5 +11,13 @@
 <style lang="postcss">
 [data-floating-label=true] input:focus~.formkit-label {
   @apply bg-base-100;
+}
+
+.arabic {
+  direction: rtl;
+  font-family: Tajawal;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
 }
 </style>

@@ -9,16 +9,16 @@ useHead({
 
 <template>
   <div>
-    <div class="flex items-center justify-center">
-      <h1>Choose Role</h1>
+    <div class="flex items-center justify-center mt-20 text-2xl">
+      <h1>هل انت طالب أم معلم؟</h1>
     </div>
-    <div class="flex items-center justify-center h-screen join">
+    <div class="flex items-center justify-center mt-10 join">
       <button class="w-20 btn btn-info join-item">
-        Info
+        طالب
       </button>
 
       <button class="w-20 btn btn-success join-item">
-        Success
+        معلم
       </button>
     </div>
   </div>

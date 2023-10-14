@@ -14,6 +14,12 @@ export default defineNuxtConfig({
     'nuxt-rating',
     '@nuxtjs/supabase',
     '@formkit/nuxt',
+    '@nuxtjs/google-fonts',
+    ['@nuxtjs/google-fonts', {
+      families: {
+        Tajawal: true,
+      },
+    }],
   ],
   supabase: {
     redirectOptions: {
