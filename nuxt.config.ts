@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/login',
       callback: '/confirm',
-      exclude: ['/', '/register', '/role'],
+      exclude: ['/', '/register', '/role', '/register-student', '/register-teacher'],
     },
   },
 })

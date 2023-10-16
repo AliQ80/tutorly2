@@ -13,13 +13,13 @@ useHead({
       <h1>هل انت طالب أم معلم؟</h1>
     </div>
     <div class="flex items-center justify-center mt-10 join">
-      <button class="w-20 btn btn-info join-item">
+      <NuxtLink to="/register-student" class="w-20 btn btn-info join-item">
         طالب
-      </button>
+      </NuxtLink>
 
-      <button class="w-20 btn btn-success join-item">
+      <NuxtLink to="/register-teacher" class="w-20 btn btn-success join-item">
         معلم
-      </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
