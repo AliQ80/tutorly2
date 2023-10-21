@@ -10,6 +10,7 @@ useHead({
 <template>
   <div>
     TeacherRegForm
+    <RegisterForm role-prop="teacher" />
   </div>
 </template>
 

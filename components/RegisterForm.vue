@@ -1,4 +1,11 @@
 <script setup lang='ts'>
+const props = defineProps({
+  roleProp: {
+    type: String,
+    required: true,
+  },
+})
+
 const supabase = useSupabaseClient()
 
 const submitted = ref(false)
@@ -7,7 +14,7 @@ const firstName = ref('')
 const lastName = ref('')
 const email = ref('')
 const password = ref('')
-const role = ref('')
+const role = ref(props.roleProp)
 const gender = ref('')
 
 const country = ref('')
@@ -128,8 +135,11 @@ function submitHandler() {
         :actions="true"
         @submit="submitHandler"
       >
-        <h1 class="my-8 text-3xl font-semibold text-center text-purple-700">
-          تسجيل مستخدم جديد!
+        <h1 v-if="roleProp === 'student'" class="my-8 text-3xl font-semibold text-center text-info">
+          تسجيل  طالب جديد!
+        </h1>
+        <h1 v-else class="my-8 text-3xl font-semibold text-center text-success">
+          تسجيل معلم جديد!
         </h1>
         <div class="divider">
           Account
@@ -197,7 +207,7 @@ function submitHandler() {
             validation="required"
           />
         </div>
-        <FormKit
+        <!-- <FormKit
           v-model="role"
           type="radio"
           label="What is your role?"
@@ -205,7 +215,7 @@ function submitHandler() {
             { label: 'Student', value: 'student' },
             { label: 'Teacher', value: 'teacher' },
           ]"
-        />
+        /> -->
         <FormKit
           v-model="gender"
           type="radio"
@@ -249,6 +259,8 @@ function submitHandler() {
         />
       </formkit>
     </div>
+    <!-- TODO: remove this -->
+    <p>role: {{ roleProp }}</p>
   </div>
 </template>
 

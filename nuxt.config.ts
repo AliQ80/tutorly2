@@ -18,6 +18,8 @@ export default defineNuxtConfig({
     ['@nuxtjs/google-fonts', {
       families: {
         Tajawal: true,
+        download: true,
+        fontsDir: 'assets/fonts',
       },
     }],
   ],
