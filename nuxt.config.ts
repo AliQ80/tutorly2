@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+
   // logLevel: 'silent',
   modules: [
     '@nuxtjs/tailwindcss',
@@ -23,6 +24,7 @@ export default defineNuxtConfig({
       },
     }],
   ],
+
   supabase: {
     redirectOptions: {
       login: '/login',
@@ -30,4 +32,6 @@ export default defineNuxtConfig({
       exclude: ['/', '/register', '/role', '/register-student', '/register-teacher'],
     },
   },
+
+  compatibilityDate: '2024-09-15',
 })
