@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia'
 import { useUsersStore } from '@/stores/users'
+import { storeToRefs } from 'pinia'
 
 const users = useUsersStore()
 const { authenticated } = storeToRefs(users)
@@ -15,9 +15,11 @@ function isLoggedIn() {
 <template>
   <div>
     <MainNavbar dir="ltr" />
-    <SideMenu v-if="isLoggedIn()">
-      <slot />
-    </SideMenu>
-    <slot v-else />
+    <div class="flex">
+      <SideMenu v-if="isLoggedIn()" />
+      <div class="flex-grow">
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
